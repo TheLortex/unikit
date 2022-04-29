@@ -1,0 +1,2 @@
+#!/bin/sh
+/usr/bin/qemu-system-x86_64 -smp 1 -m 1024 -uuid 304faac8-7445-41e6-84d4-cd49f0c54feb -pidfile linuxkit-state/qemu.pid -machine q35,accel=kvm:tcg -object rng-random,id=rng0,filename=/dev/urandom -device virtio-rng-pci,rng=rng0 -kernel linuxkit-kernel -initrd linuxkit-initrd.img -append "console=tty0 console=ttyS0 console=ttyAMA0" -device virtio-net-pci,netdev=t0,mac=3e:19:0d:2b:ec:92 -netdev user,id=t0 -nographic -cpu host
